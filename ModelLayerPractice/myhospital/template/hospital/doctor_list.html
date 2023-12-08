@@ -1,0 +1,42 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'hospital/style.css' %}" />
+
+<form method="GET" action="{% url 'myhospital:doctor_list' %}">
+    <label for="search">Search by Doctor Name:</label>
+    <input
+        type="text"
+        name="search"
+        id="search"
+        value="{{ request.GET.search }}" />
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <tbody>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Major</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        {% if doctor_list %}
+            {% for doctor in doctor_list %}
+                <tr>
+                    <td>{{ doctor.firstname }} {{ doctor.lastname }}</td>
+                    <td>{{ doctor.age }} </td>
+                    <td>{{ doctor.gender }}</td>
+                    <td>{{ doctor.major }} </td>
+                    <td><a href="{% url 'myhospital:doctor_detail' pk=doctor.id %}">Details</a></td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="2">No doctors available</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>

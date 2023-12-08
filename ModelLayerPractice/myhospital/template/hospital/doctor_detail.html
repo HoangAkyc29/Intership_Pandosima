@@ -1,0 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'hospital/style.css' %}" />
+
+<h1>Doctor Details</h1>
+
+<p><strong>Doctor Name:</strong> {{ doctor.firstname }} {{ doctor.lastname }}</p>
+<p><strong>Age:</strong> {{ doctor.age }}</p>
+<p><strong>Gender:</strong> {{ doctor.gender }}</p>
+<p><strong>Major:</strong> {{ doctor.major }}</p>
+
+<a href="{% url 'myhospital:doctor_list' %}">Back to Doctor List</a>

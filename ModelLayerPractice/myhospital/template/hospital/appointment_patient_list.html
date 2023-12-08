@@ -1,0 +1,34 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'hospital/style.css' %}" />
+
+<table>
+    <thead>
+        <tr>
+            <th>Appointment Name</th>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Date_appointment</th>
+            <th>Date_checkup</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if appointment_list %}
+            {% for appointment in appointment_list %}
+                <tr>
+                    <td>{{ appointment.name }}</td>
+                    <td>{{ appointment.patient }}</td>
+                    <td>{{ appointment.doctor }}</td>
+                    <td>{{ appointment.date_appointment }}</td>
+                    <td>{{ appointment.date_checkup }}</td>
+                    <td><a href="{% url 'myhospital:appointment_detail' pk=appointment.id %}">Details</a></td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="2">No appointments available</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>

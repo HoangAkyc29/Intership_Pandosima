@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'hospital/style.css' %}" />
+
+<h1>Patient Details</h1>
+
+<p><strong>Patient Name:</strong> {{ patient.firstname }} {{ patient.lastname }}</p>
+<p><strong>Phone:</strong> {{ patient.phone }}</p>
+<p><strong>Age:</strong> {{ patient.age }}</p>
+<p><strong>Gender:</strong> {{ patient.gender }}</p>
+<p><strong>Ethnicity:</strong> {{ patient.ethnicity }}</p>
+<p><strong>Blood Type:</strong> {{ patient.blood_type }}</p>
+
+<a href="{% url 'myhospital:patient_list' %}">Back to Patient List</a>
