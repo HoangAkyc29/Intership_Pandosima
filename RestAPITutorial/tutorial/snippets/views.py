@@ -61,6 +61,14 @@ class SnippetViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
+
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    This viewset automatically provides `list` and `retrieve` actions.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
 # class UserList(generics.ListAPIView):
 #     queryset = User.objects.all()
 #     serializer_class = UserSerializer
@@ -69,13 +77,6 @@ class SnippetViewSet(viewsets.ModelViewSet):
 # class UserDetail(generics.RetrieveAPIView):
 #     queryset = User.objects.all()
 #     serializer_class = UserSerializer
-
-class UserViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    This viewset automatically provides `list` and `retrieve` actions.
-    """
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
 
 # @api_view(['GET'])
 # def api_root(request, format=None):
