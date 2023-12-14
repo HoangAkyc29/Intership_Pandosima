@@ -4,77 +4,72 @@ import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <script>
+import _ from "lodash";
 export default {
   name: "App",
   data() {
     return {
-      name: "Minh Hoang",
-      greet: "Hello",
-      comment: "Binding Text",
-      htmlbinding: '<b>Coding</b>',
-      headingID: 'heading',
-      hack: `<a href="#" onclick="alert('Hello')">Win a prize!</a>"`,
-      isDisabled: false,
-      status: 'success',
-      isPromoted: false,
-      isSoldout: true,
-      highlightcolor: 'orange',
-      headerSize: 50,
-      headerStyleObject: {
-        color: 'orange',
-        fontSize: '50px',
-        padding: '20px'
-      },
-      baseStyleObject: {
-        fontSize: '50px',
-        padding: '10px'
-      },
-      successStyleObject: {
-        color: 'green',
-        backgroundColor: 'lightgreen',
-        border: '1px solid green',
-        padding: '20px'
+      // num : -5,
+      // display : false,
+      // showElement: false,
+      names: ['Bruce', 'Clark','Diana','Barry'],
+      // fullnames : [
+      //   { first: 'Bruce', last: 'Wayne'},
+      //   { first: 'Clark', last: 'Kent'},
+      //   { first: 'Princess', last: 'Diana'},
+      // ],
+      // actors: [
+      //   {
+      //     name: 'Chirstan Bale',
+      //     movies: ['Demacia','The Final Season'],
+      //   },
+      //   {
+      //     name: 'Di Caprios',
+      //     movies: ['The Last Season', 'Titanic'],
+      //   },
+      };
+    },
+    methods: {
+      shuffle() {
+        console.log(this.names);
+        this.names = _.shuffle(this.names);
       }
-    };
-  },
-};
+    }
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="I did it!" />
-    </div>
-  </header>
-
   <main>
-    <div> {{ greet }} {{ name }}</div>
-    <div v-text="comment"></div>
-    <div v-html="htmlbinding"></div>
-    <div v-html="hack"></div>
-    <h2 v-bind:id="headingID">Heading</h2>
-    <button v-bind:disabled="isDisabled">Bind</button>
-    <h2 class = "underline">Underlined text</h2>
-    <h2 class = "underline" v-bind:class="status">Status</h2>
-    <h2 v-bind:class="isPromoted && 'promoted'">Promoted movie</h2>
-    <h2 v-bind:class="isSoldout ? 'sold-out' : 'new'">Soldout ? movie</h2>
-    <h2 v-bind:class="['new', 'promoted']">Newly promoted movie</h2>
-    <h2 v-bind:class="[isPromoted && 'promoted', isSoldout ? 'sold-out' : 'new']">Array conditional movie</h2>
-    <h2 v-bind:class="{
-      promoted:isPromoted,
-      new: !isSoldout,
-      'sold-out': isSoldout
-    }">Object conditional movie</h2>
-    <h2 v-bind:style="{
-      color: highlightcolor,
-      'font-size': headerSize + 'px',
-      padding: '20px',
-    }">Inline style</h2>
-    <h2 v-bind:style="headerStyleObject"> Style Object</h2>
-    <div v-bind:style="[baseStyleObject, successStyleObject]"> Success Style</div>"
-  </main>
+    <!-- <h2 v-if="num === 0"> The number is zero </h2> -->
+    <!-- <h2 v-else-if="num < 0"> The number is negative</h2>
+    <h2 v-else-if="num > 0"> The number is positive</h2>
+    <h2 v-else> It is not a number</h2> -->
+    <template v-for="name in names" :key="name">
+    <h2> {{ name }}</h2>
+    <input placeholder="Last name">
+    <hr />
+  </template>
+  <button @click="shuffle">Shuffle!</button>
+    <!-- <hr />
+    <h2 v-if="display" v-for="(name, index) in names" :key ="name">{{ index }} {{ name }}</h2>
+    <hr />
+    <h2 v-if="display" v-for="(name, index) in fullnames" :key ="name.first">{{ name.first }} {{ name.last }}</h2>
+    <hr />
+    <div v-for="actor in actors" :key ="actor.name" v-if="display">
+      <br>
+      <h2>{{ actor.name }}</h2>
+      <h3 v-for="movie in actor.movies" :key="movie">{{ movie }}</h3>
+    </div>
+    <hr />
+  <template v-if="display">
+    <h2> MinhHoang</h2>
+    <h2> Code</h2>
+    <h2> Vue </h2>
+  </template>
+  <h2 v-show="showElement"> Using v-show</h2>
+  <h2 v-if="showElement">Using v-if</h2> -->
+  </main> 
+
 </template>
 
 <style scoped>
@@ -103,17 +98,5 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-}
-.underline {
-  text-decoration: underline;
-}
-.promoted {
-  font-style:italic;
-}
-.new {
-  color: olivedrab;
-}
-.sold-out{
-  color: red;
 }
 </style>
