@@ -1,7 +1,5 @@
 from django.db import models
-import datetime
-
-from django.db import models
+from django.contrib.auth.models import AbstractUser, AbstractBaseUser, BaseUserManager
 from django.core.validators import MinValueValidator
 
 class Patient(models.Model):
@@ -101,5 +99,5 @@ class PrescriptionLines(models.Model):
     def prescription_price(self):
         return self.unit_price * self.quantity
 
-
-
+class MyUser(AbstractUser):
+    pass
