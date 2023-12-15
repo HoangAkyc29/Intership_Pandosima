@@ -13,12 +13,15 @@
     "combined-stream": "^1.0.8",
     "core-js": "^3.8.3",
     "delayed-stream": "^1.0.0",
+    "es6-promise": "^4.2.8",
     "follow-redirects": "^1.15.3",
     "form-data": "^4.0.0",
     "mime-db": "^1.52.0",
     "mime-types": "^2.1.35",
     "proxy-from-env": "^1.1.0",
-    "vue": "^3.2.13"
+    "vue": "^3.2.36",
+    "vue-loader": "^17.3.1",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -30,7 +33,10 @@
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-vue": "^8.0.3",
-    "eslint-plugin-vuejs-accessibility": "^1.1.0"
+    "eslint-plugin-vuejs-accessibility": "^1.1.0",
+    "stylelint": "^16.0.2",
+    "stylelint-config-standard-scss": "^12.0.0",
+    "vue-template-loader": "^1.1.0"
   },
   "eslintConfig": {
     "root": true,
@@ -44,7 +50,9 @@
     "parserOptions": {
       "parser": "@babel/eslint-parser"
     },
-    "rules": {}
+    "rules": {
+      "linebreak-style": 0
+    }
   },
   "browserslist": [
     "> 1%",

@@ -159,3 +159,36 @@ class AppointmentDetailView(RetrieveAPIView):
         data['prescription_lines'] = prescription_lines_serializer.data
 
         return Response(data)
+
+
+class AddDoctorView(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = DoctorSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class AddPatientView(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = PatientSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class AddAppointmentView(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = AppointmentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class AddPrescriptionLinesView(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = PrescriptionLinesSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

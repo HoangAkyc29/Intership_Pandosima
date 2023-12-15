@@ -1,13 +1,15 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeVue from '../components/Home/Home.vue'
-import LoginVue from '../components/Login/Login.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import Register from '../components/Register/Register.vue';
 
-const routes = []
+const routes = [
+  // Other routes if any
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
+  },
+];
 
-export const router = createRouter({
-  // Provide the history implementation to use. We are using the hash history for simplicity here.
-  history: createWebHashHistory(),
-  routes, // short for `routes: routes`
-})
+const router = createRouter({ history: createWebHistory(), routes });
+
+export default router;

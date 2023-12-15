@@ -10,7 +10,7 @@ from .views import (
     AppointmentDetailView,
     UserViewSet,
     LoginView,
-    RegisterView
+    RegisterView,AddDoctorView,AddPatientView,AddAppointmentView,AddPrescriptionLinesView
 )
 app_name = 'myhospital'
 
@@ -33,4 +33,8 @@ urlpatterns = [
     path("users/<int:pk>/", user_detail, name="user-detail"),
     path("login/", LoginView.as_view(), name="login"),
     path("register/", RegisterView.as_view(), name="register"),
+    path('add/doctor/', AddDoctorView.as_view(), name='add-doctor'),
+    path('add/patient/', AddPatientView.as_view(), name='add-patient'),
+    path('add/appointment/', AddAppointmentView.as_view(), name='add-appointment'),
+    path('add/prescriptionlines/', AddPrescriptionLinesView.as_view(), name='add-prescriptionlines'),
 ]
