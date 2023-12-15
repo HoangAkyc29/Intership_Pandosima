@@ -1,9 +1,6 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import HeaderVue from './components/Header/Header.vue'
-import { router } from './routes/route'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router/router';
 
-const app = createApp(App);
-
-app.use(router)
-app.mount('#app')
+// eslint-disable-next-line no-trailing-spaces, eol-last
+createApp(App).use(router).mount('#app'); 
