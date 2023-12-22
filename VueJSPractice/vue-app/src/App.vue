@@ -5,13 +5,20 @@ import TheWelcome from './components/TheWelcome.vue'
 
 <script>
 import _ from "lodash";
+import Greet from './components/Greet.vue'
 export default {
   name: "App",
+  components: {
+    Greet,
+  },
   data() {
     return {
       // num : -5,
       // display : false,
       // showElement: false,
+      name: "Hoang",
+      props: ['Nguyen Minh'],
+
       names: ['Bruce', 'Clark','Diana','Barry'],
       count: 0,
       firstName: 'Diana',
@@ -116,6 +123,9 @@ export default {
   <h2 v-show="showElement"> Using v-show</h2>
   <h2 v-if="showElement">Using v-if</h2> 
   </main> -->
+
+
+
   <!-- <main>
     <h2 v-for="(name, index) in names" :key ="name">{{ index }} {{ name }}</h2>
     <div>
@@ -132,7 +142,10 @@ export default {
     <button @click= "items.push({id:4, title:'Keyboard',price:50})"> Add Item </button>
     <h2> Computed Total - {{ total }}</h2>
   </main> -->
-  <main justify-content="center">
+
+
+
+  <!-- <main justify-content="center">
     <div>
     <pre>
       {{ JSON.stringify(formValues, null, 2)}}
@@ -190,7 +203,10 @@ export default {
       <button>Submit</button>
     </div>
   </form>
-  </main>
+  </main> -->
+
+  <Greet name="Vinh" props="['Trinh Quang']" />
+  <Greet :name="name" :props="props" />
   
 </template>
 
