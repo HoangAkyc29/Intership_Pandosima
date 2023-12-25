@@ -1,0 +1,3 @@
+Server_Access_Token = XERAMI2JWXDV7EFHBYN5RTQAW3TVBMDS
+Client_Access_Token = GITVEK5XIHYYOWJJRTQXOK3OB7PI4AHL
+App Name = commentclassifying
